@@ -28,6 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
+  //TextEditingController gender = TextEditingController();
   TextEditingController mobileNumber = TextEditingController();
   TextEditingController address = TextEditingController();
   TextEditingController pincode = TextEditingController();
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Step(
       state: _activeStepIndex<= 0? StepState.editing : StepState.complete,
       isActive: _activeStepIndex >= 0,
-      title: const Text('Personal Details'),
+      title: const Text('Personal\nDetails'),
       content: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 25.0, right: 30.0, bottom: 25.0, left: 10.0),
         child: Column(
@@ -116,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     value: value,
                     child: Text(value),
                   );
+
                 }).toList(),
                 onChanged: (values) {setState(() {
 
@@ -129,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Step(
       state: _activeStepIndex<= 1? StepState.editing : StepState.complete,
       isActive: _activeStepIndex >= 1,
-      title: const Text('Full Address'),
+      title: const Text('Full\nAddress'),
       content: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 25.0, right: 30.0, bottom: 25.0, left: 10.0),
         child: Column(
@@ -227,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Step(
       state: _activeStepIndex<= 2? StepState.editing : StepState.complete,
       isActive: _activeStepIndex >= 2,
-      title: const Text('Company Details'),
+      title: const Text('Company\nDetails'),
       content: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 25.0, right: 30.0, bottom: 25.0, left: 10.0),
         child: Column(
@@ -289,7 +291,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Text('Name: ${name.text}'),
           Text('Email: ${email.text}'),
-         // const Text('Password: *****'),
+          Text('Gender: ${email.text}'),
           Text('Address : ${address.text}'),
           Text('PinCode : ${pincode.text}'),
         ],
