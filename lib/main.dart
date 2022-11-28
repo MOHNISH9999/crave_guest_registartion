@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
   }
@@ -96,19 +98,29 @@ class _MyHomePageState extends State<MyHomePage> {
             //   ),
             //   keyboardType: TextInputType.text,
             // ),
-            DropdownButtonFormField<String>(
-              isExpanded: true,
-              iconSize: 32,
-              icon: const Icon(Icons.arrow_drop_down, color: Colors.blueAccent,),
-              items: <String>['Male', 'Female', 'Other'].map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (values) {setState(() {
+            Padding(
+              padding: const EdgeInsets.all(0.0),
+              child: DropdownButtonFormField<String>(
+                isExpanded: true,
+                iconSize: 32,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  labelText: 'Select Gender',
+                  hintText: 'Gender',
+                  icon: Icon(Icons.people_rounded),
+                ),
+                icon: const Icon(Icons.arrow_drop_down, color: Colors.blueAccent,),
+                items: <String>['Male', 'Female', 'Other'].map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (values) {setState(() {
 
-              });},
+                });},
+              ),
             )
           ],
         ),
