@@ -123,20 +123,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 });},
               ),
-            )
-          ],
-        ),
-      ),
-),
-    Step(
-      state: _activeStepIndex<= 1? StepState.editing : StepState.complete,
-      isActive: _activeStepIndex >= 1,
-      title: const Text('Full\nAddress'),
-      content: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 25.0, right: 30.0, bottom: 25.0, left: 10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
+            ),
+
+            const Padding(
+              padding: EdgeInsets.only(bottom: 30.0),
+            ),
             TextFormField(
               controller: address,
               decoration: const InputDecoration(
@@ -222,10 +213,29 @@ class _MyHomePageState extends State<MyHomePage> {
             const Padding(
               padding: EdgeInsets.only(bottom: 30.0),
             ),
+
+
           ],
         ),
       ),
-    ),
+),
+
+
+    // Step(
+    //   state: _activeStepIndex<= 1? StepState.editing : StepState.complete,
+    //   isActive: _activeStepIndex >= 1,
+    //   title: const Text('Full\nAddress'),
+    //   content: SingleChildScrollView(
+    //     padding: const EdgeInsets.only(top: 25.0, right: 30.0, bottom: 25.0, left: 10.0),
+    //     child: Column(
+    //       crossAxisAlignment: CrossAxisAlignment.end,
+    //       children: <Widget>[
+    //
+    //       ],
+    //     ),
+    //   ),
+    // ),
+
     Step(
       state: _activeStepIndex<= 2? StepState.editing : StepState.complete,
       isActive: _activeStepIndex >= 2,
