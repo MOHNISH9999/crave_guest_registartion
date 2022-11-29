@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
+
 void main() {
   runApp(const MyApp());
 }
@@ -24,6 +28,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage> {
+
   int _activeStepIndex = 0;
 
   TextEditingController name = TextEditingController();
@@ -32,6 +37,33 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController mobileNumber = TextEditingController();
   TextEditingController address = TextEditingController();
   TextEditingController pincode = TextEditingController();
+
+//
+//   String result = "Hello World...!";
+//   Future _scanQR() async {
+//     var cameraStatus = await Permission.camera.status;
+//     if(cameraStatus.isGranted)
+//     {
+//       String? qrdata = await scanner.scan();
+//       print(qrdata);
+//     }
+//     else{
+//       var isGrant = await Permission.camera.request();
+//
+//       if(isGrant.isGranted){
+//         String? qrdata = await scanner.scan();
+//         print(qrdata);
+//       }
+//     }
+//     try {
+//       String? cameraScanResult = await scanner.scan();
+//       setState(() {
+//         result = cameraScanResult!; // setting string result with cameraScanResult
+//       });
+//     } on PlatformException catch (e) {
+//       print(e);
+//     }
+//
 
   List<Step> stepList()=> [
     Step(
@@ -315,6 +347,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Guest Registration Form'),),
+      //
+      floatingActionButton: FloatingActionButton.extended(
+          icon: const Icon(Icons.camera_alt),
+          onPressed: () {
+            //_scanQR(); // calling a function when user click on button
+          },
+          label: const Text("Scan")),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      //
       body: Stepper(
         type: StepperType.horizontal,
         currentStep: _activeStepIndex,
